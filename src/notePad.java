@@ -1,11 +1,16 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 public class notePad implements Serializable {
     private String name;
     private String note;
-    private String date;
+    private String  date;
+
+    public String getDate() {
+        return date;
+    }
 
     public String getName() {
         return name;
@@ -28,15 +33,18 @@ public class notePad implements Serializable {
         return note;
     }
 
-    public void setNote(String note) {
-        this.note = note;
-    }
-
     @Override
     public String toString() {
         return "notePad{" +
                 "name='" + name + '\'' +
                 ", note='" + note + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+
 }
