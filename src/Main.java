@@ -77,6 +77,24 @@ public class Main {
                 e.printStackTrace();
             }
         }
+        if(n == 2){
+            System.out.println("choose a note to delete: ");
+            int i = 1;
+            for (notePad no: notePadArrayList){
+                System.out.println(i + "-" + no.getName() + " , " + no.getDate());
+                i++;
+            }
+            Scanner scanner = new Scanner(System.in);
+            String in = scanner.next();
+            i = 0;
+            for (notePad no: notePadArrayList){
+                if(in.equals(no.getName())){
+                    notePadArrayList.remove(i);
+                }
+                i++;
+            }
+
+        }
 
 
     }
