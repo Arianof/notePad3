@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +14,6 @@ public class Main {
         System.out.println("4.export");
         Scanner intScanner = new Scanner(System.in);
         int n = intScanner.nextInt();
-        if(n == 1) {
             String name;
             String note;
             ArrayList<notePad> notePadArrayList = new ArrayList<>();
@@ -40,6 +41,7 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        if(n == 1) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("name: ");
             name = scanner.next();
@@ -53,6 +55,9 @@ public class Main {
             note = scanner.nextLine();
             note = scanner.nextLine();
             notePad notePad = new notePad(name, note);
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+            notePad.setDate(dtf.format(now));
             notePadArrayList.add(notePad);
 
             try {
